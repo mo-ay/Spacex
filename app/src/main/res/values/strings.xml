@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Spacex</string>
+    <string name="search_title">search</string>
+    <string name="notification">Notification</string>
+    <string name="rocket_image">rocket image</string>
+    <string name="share">Share</string>
+    <string name="read_more">Read More</string>
+    <string name="close">close</string>
+    <string name="no_internet">Please check your internet connection</string>
+</resources>
