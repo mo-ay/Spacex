@@ -1,5 +1,7 @@
 package com.ayprotech.spacex.ui.rocket
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import com.ayprotech.spacex.databinding.RocketFragmentBinding
 import com.ayprotech.spacex.util.handleApiError
 import com.ayprotech.spacex.util.visible
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class RocketFragment : Fragment() {
@@ -34,12 +37,13 @@ class RocketFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        var wikiLink :String? = null
         viewModel.getRocketAPI(arguments.rocketId)
         viewModel.rocket.observe(viewLifecycleOwner) {
             binding.progressBar3.visible(it is Resource.Loading)
             if (it is Resource.Success) {
                 binding.rocket = it.value
+                wikiLink = it.value.wikipedia
             } else if (it is Resource.Failure) {
                 handleApiError(it) { viewModel.getRocketAPI(arguments.rocketId) }
             }
@@ -50,7 +54,10 @@ class RocketFragment : Fragment() {
             )
         }
         binding.readMore.setOnClickListener {
-
+            wikiLink?.let {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(it))
+                startActivity(browserIntent)
+            }
         }
     }
 

@@ -10,6 +10,10 @@
             type="com.ayprotech.spacex.data.network.responses.rocket.Rocket" />
 
     </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -127,16 +131,14 @@
             style="@style/Widget.Spacex.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_margin="16dp"
             android:text="@string/share"
             android:textAlignment="center"
             android:textColor="@color/gold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/read_more" />
 
         <ProgressBar
             android:id="@+id/progressBar2"
@@ -167,4 +169,6 @@
             app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </layout>

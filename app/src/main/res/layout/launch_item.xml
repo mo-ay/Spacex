@@ -33,7 +33,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.4"
+            android:alpha="0.5"
             android:background="@color/black" />
 
         <LinearLayout
@@ -56,7 +56,7 @@
                 style="@style/Widget.Spacex.CardView.body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{launchItem.date_local}"
+                app:dateFormat="@{launchItem.date_utc}"
                 tools:text="TextView" />
 
             <Space
@@ -78,9 +78,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:max="1000"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:progress="40"
+                app:progressDate="@{launchItem.date_utc}"
                 android:progressBackgroundTint="@color/white"
                 android:progressBackgroundTintMode="screen" />
         </LinearLayout>

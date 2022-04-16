@@ -34,20 +34,6 @@ private val retrofit = Retrofit.Builder()
 
 
 object Network {
-    //    operator fun invoke(
-//        networkConnectionInterceptor: NetworkConnectionInterceptor
-//    ) : MyApi{
-//
-//        val okkHttpclient = OkHttpClient.Builder()
-//            .addInterceptor(networkConnectionInterceptor)
-//            .build()
-//
-//        return Retrofit.Builder()
-//            .client(okkHttpclient)
-//            .baseUrl()
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//            .create(MyApi::class.java)
-//    }
+
     val retrofitService: MyApi by lazy { retrofit.create(MyApi::class.java) }
 }

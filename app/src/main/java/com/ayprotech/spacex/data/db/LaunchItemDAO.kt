@@ -19,4 +19,7 @@ interface LaunchItemDAO {
     @Query("DELETE  FROM LaunchesItem")
     suspend fun deleteAll()
 
+    @Query("delete from LaunchesItem where date_unix in (:date_unix)")
+    suspend fun deleteList(date_unix: List<Int>)
+
 }

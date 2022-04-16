@@ -18,5 +18,7 @@ class LaunchRepository @Inject constructor(
     fun getLaunchesDb() = db.getLaunchesItemDAO().getLaunches()
 
     suspend fun deleteLaunchesDb() = db.getLaunchesItemDAO().deleteAll()
+    suspend fun deleteListLaunchesDb(list: List<Int>) = db.getLaunchesItemDAO().deleteList(list)
+
 
 }

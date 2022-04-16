@@ -28,8 +28,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolBar)
         val navController = (supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment).navController
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.mainFragment,
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("UnsafeOptInUsageError")
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.tool_bar_menu, menu)
-        // Get the notifications MenuItem and LayerDrawable (layer-list)
         // Get the notifications MenuItem and LayerDrawable (layer-list)
         val item: MenuItem = menu!!.findItem(R.id.notification)
 

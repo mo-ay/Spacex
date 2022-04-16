@@ -52,11 +52,12 @@ class LaunchesAdapter(val launchClick: LaunchClick) :
      * position.
      */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (position < launchItems.size)
+        try {
             (holder as LaunchesItemViewHolder).viewDataBinding.also {
                 it.launchItem = getItem(position)
                 it.launchClick = launchClick
             }
+        }catch (ignored : Exception){}
     }
 
 }
