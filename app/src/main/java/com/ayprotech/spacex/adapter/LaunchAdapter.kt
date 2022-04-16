@@ -57,7 +57,8 @@ class LaunchesAdapter(val launchClick: LaunchClick) :
                 it.launchItem = getItem(position)
                 it.launchClick = launchClick
             }
-        }catch (ignored : Exception){}
+        } catch (ignored: Exception) {
+        }
     }
 
 }

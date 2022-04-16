@@ -52,12 +52,12 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getLaunchesDb().observe(viewLifecycleOwner) {
-                launchesAdapter.launchItems = it
-                launchDb = it
+            launchesAdapter.launchItems = it
+            launchDb = it
 
         }
-        viewModel.launches.observe(viewLifecycleOwner){
-            if (it is Resource.Success && viewModel.didFilter.value == 0){
+        viewModel.launches.observe(viewLifecycleOwner) {
+            if (it is Resource.Success && viewModel.didFilter.value == 0) {
                 filterAndSave(it.value)
             }
         }
@@ -91,13 +91,15 @@ class MainFragment : Fragment() {
         }
 
         val newLaunchesIds = launchesToSave.map { it.date_unix }
-        val removeExpired = launchDb?.filter { !newLaunchesIds.contains(it.date_unix) }?.map { it.date_unix }
-        Log.d( "filterAndSave: ","and the $removeExpired")
+        val removeExpired =
+            launchDb?.filter { !newLaunchesIds.contains(it.date_unix) }?.map { it.date_unix }
+        Log.d("filterAndSave: ", "and the $removeExpired")
         removeExpired?.let { viewModel.deleteListLaunches(it) }
         viewModel.saveLaunches(launchesToSave)
         viewModel._didFilter.value = 1
 
     }
+
     private fun toDate(s: String): Date? {
         try {
             val formatterr =

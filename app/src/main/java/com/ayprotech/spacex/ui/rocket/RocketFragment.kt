@@ -37,7 +37,7 @@ class RocketFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var wikiLink :String? = null
+        var wikiLink: String? = null
         viewModel.getRocketAPI(arguments.rocketId)
         viewModel.rocket.observe(viewLifecycleOwner) {
             binding.progressBar3.visible(it is Resource.Loading)

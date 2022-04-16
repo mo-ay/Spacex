@@ -78,12 +78,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:max="1000"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                app:progressDate="@{launchItem.date_utc}"
+                android:max="1000"
                 android:progressBackgroundTint="@color/white"
-                android:progressBackgroundTintMode="screen" />
+                android:progressBackgroundTintMode="screen"
+                app:progressDate="@{launchItem.date_utc}" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
